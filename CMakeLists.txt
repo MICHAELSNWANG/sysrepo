@@ -257,11 +257,29 @@ macro(INSTALL_YANG MODULE_NAME REVISION PERMISSIONS)
 endmacro(INSTALL_YANG)
 
 # Examples
-SET(BUILD_EXAMPLES 1 CACHE BOOL "Build examples and install example YANG models.")
-if(BUILD_EXAMPLES)
-    MESSAGE(STATUS "Example code and YANG models will be built and installed.")
-    add_subdirectory(examples)
-endif()
+#SET(BUILD_EXAMPLES 1 CACHE BOOL "Build examples and install example YANG models.")
+#if(BUILD_EXAMPLES)
+#    MESSAGE(STATUS "Example code and YANG models will be built and installed.")
+#    add_subdirectory(examples)
+#endif()
+
+include_directories("${PROJECT_SOURCE_DIR}/inc")
+
+# turing-machine plugin
+add_library(turing-machine SHARED turing-machine.c)
+target_link_libraries(turing-machine sysrepo)
+
+# oven plugin
+add_library(oven SHARED oven.c)
+target_link_libraries(oven sysrepo)
+
+install(TARGETS turing-machine DESTINATION ${PLUGINS_DIR})
+
+
+
+
+
+
 
 # Testing
 SET(ENABLE_TESTS 1 CACHE BOOL "Enable unit tests.")
