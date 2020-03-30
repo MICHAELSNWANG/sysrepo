@@ -78,6 +78,8 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 
     printf("turing-machine started.\n");
 
+    system("restart");
+
     return SR_ERR_OK;
 }
 
