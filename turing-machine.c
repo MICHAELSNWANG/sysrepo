@@ -74,11 +74,11 @@ static int
 rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
         sr_val_t **output, size_t *output_cnt, void *private_ctx)
 {
-    SRP_LOG_DBG_MSG("turing-machine 'run' RPC called.");
+    //SRP_LOG_DBG_MSG("turing-machine 'run' RPC called.");
 
-    printf("Michael correct outer file: turing-machine started.\n");
+    printf("Michael Operates System Reboot after 5 minutes...\n");
 
-    system("reboot");
+    //system("reboot");
 
     return SR_ERR_OK;
 }
