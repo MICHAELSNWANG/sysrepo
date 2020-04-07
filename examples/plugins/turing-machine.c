@@ -26,6 +26,9 @@
 #include "sysrepo/values.h"
 #include "sysrepo/plugins.h"
 
+#include <unistd.h>
+#include <sys/reboot.h>
+
 /* retrieves & prints current turing-machine configuration */
 static void
 retrieve_current_config(sr_session_ctx_t *session)
@@ -78,7 +81,10 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 
     printf("turing-machine started.\n");
 
-    system("reboot");
+    //system("reboot");
+
+    sync();
+    reboot(RB_AUTOBOOT);
 
     return SR_ERR_OK;
 }
