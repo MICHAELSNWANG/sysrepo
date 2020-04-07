@@ -79,12 +79,12 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 {
     SRP_LOG_DBG_MSG("turing-machine 'run' RPC called.");
 
-    printf("turing-machine started.\n");
+    printf("Michael_use_reboot turing-machine started.\n");
 
-    //system("reboot");
+    system("reboot");
 
-    sync();
-    reboot(RB_AUTOBOOT);
+    //sync();
+    //reboot(RB_AUTOBOOT);
 
     return SR_ERR_OK;
 }
