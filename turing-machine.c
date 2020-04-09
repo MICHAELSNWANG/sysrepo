@@ -26,6 +26,8 @@
 #include "sysrepo/values.h"
 #include "sysrepo/plugins.h"
 
+#include <unistd.h>
+
 /* retrieves & prints current turing-machine configuration */
 static void
 retrieve_current_config(sr_session_ctx_t *session)
@@ -76,9 +78,11 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 {
     //SRP_LOG_DBG_MSG("turing-machine 'run' RPC called.");
 
-    printf("Michael Operates System Reboot after 5 minutes...\n");
+    printf("Operates System Reboot after 5 minutes...\n");
 
-    //system("reboot");
+    Sleep(5000);
+
+    system("reboot");
 
     return SR_ERR_OK;
 }
@@ -101,7 +105,15 @@ sr_plugin_init_cb(sr_session_ctx_t *session, void **private_ctx)
         goto error;
     }
 
+    /*
     rc = sr_rpc_subscribe(session, "/turing-machine:run", rpc_run_cb, NULL,
+            SR_SUBSCR_CTX_REUSE, &subscription);
+    if (SR_ERR_OK != rc) {
+        goto error;
+    }
+    */
+
+    rc = sr_rpc_subscribe(session, "/turing-machine:reset", rpc_run_cb, NULL,
             SR_SUBSCR_CTX_REUSE, &subscription);
     if (SR_ERR_OK != rc) {
         goto error;
