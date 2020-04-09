@@ -78,7 +78,7 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 {
     //SRP_LOG_DBG_MSG("turing-machine 'run' RPC called.");
 
-    printf("Operates System Reboot after 5 seconds...\n");
+    printf("O-RAN M-plane Operation module: O-RU System Reboot after 5 seconds...\n");
 
     Sleep(5000);
 
