@@ -80,7 +80,7 @@ rpc_run_cb(const char *xpath, const sr_val_t *input, const size_t input_cnt,
 
     printf("O-RAN M-plane Operation module: O-RU System Reboot after 5 seconds...\n");
 
-    sleep(5);
+    //sleep(5);
 
     system("reboot");
 
