@@ -274,6 +274,7 @@ add_library(oven SHARED oven.c)
 target_link_libraries(oven sysrepo)
 
 install(TARGETS turing-machine DESTINATION ${PLUGINS_DIR})
+install(TARGETS oven DESTINATION ${PLUGINS_DIR})
 
 
 
