@@ -273,8 +273,14 @@ target_link_libraries(turing-machine sysrepo)
 add_library(oven SHARED oven.c)
 target_link_libraries(oven sysrepo)
 
+# fault plugin
+add_library(fault SHARED fault.c)
+target_link_libraries(fault sysrepo)
+
+
 install(TARGETS turing-machine DESTINATION ${PLUGINS_DIR})
 install(TARGETS oven DESTINATION ${PLUGINS_DIR})
+install(TARGETS fault DESTINATION ${PLUGINS_DIR})
 
 
 
