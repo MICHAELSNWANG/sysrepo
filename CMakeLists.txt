@@ -271,7 +271,7 @@ target_link_libraries(turing-machine sysrepo)
 
 # oven plugin
 add_library(oven SHARED oven.c)
-target_link_libraries(oven sysrepo)
+target_link_libraries(oven sysrepo xml2)
 
 # fault plugin
 add_library(fault SHARED fault.c)
